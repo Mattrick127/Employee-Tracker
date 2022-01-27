@@ -4,13 +4,13 @@ const express = require('express');
 
 const prompt = () => {
     console.log(`
-    YO SHIGGA BOOM
+    *record scratch*
     `);
     return inquirer.prompt([
         {
             type: 'rawlist',
             name: 'mainQuestion',
-            message: 'SHIKA WHAT?',
+            message: `WHAT?',
             choices: ['View All Departments', 'View All Roles', 'View All Employees', 'Add a Department', 'Add a Role', 'Add an Employee', 'Update an Employee Role']
         },
     ]);
