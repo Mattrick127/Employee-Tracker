@@ -1,6 +1,7 @@
 const inquirer = require('inquirer');
 const mysql = require('mysql2');
 const express = require('express');
+const cTable = require('console.table');
 
 const prompt = () => {
     console.log(`
@@ -10,7 +11,7 @@ const prompt = () => {
         {
             type: 'rawlist',
             name: 'mainQuestion',
-            message: `WHAT?',
+            message: 'WHAT?',
             choices: ['View All Departments', 'View All Roles', 'View All Employees', 'Add a Department', 'Add a Role', 'Add an Employee', 'Update an Employee Role']
         },
     ]);
