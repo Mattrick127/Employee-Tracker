@@ -1,15 +1,15 @@
-INSERT INTO employees (first_name, last_name, email)
+INSERT INTO employees (employee_id, first_name, last_name, role_id, manager_id)
 VALUES
-    ('Watt', 'Milson', 'wattswack@smackattack.com'),
+    (1, 'Watt', 'Milson', 1, 1);
 
-INSERT INTO positions (name, description)
+INSERT INTO positions (position_id, title, salary, department_id)
 VALUES
-    ('Supervisor', 'Manager usually on duty maintaining the store at 100% efficiency.'),
-    ('Keyholder', 'Able to perform more than enough duties to keep Manager at bay from normal work.'),
-    ('Non-Keyholder', 'New employees who have yet to prove themselves capable of being left alone with the store without a Supervisor or secondary Keyholder.');
+    (1, 'Supervisor', 23000, 1 ),
+    (2, 'Keyholder', 20000, 2 ),
+    (3, 'Non-Keyholder', 18000, 3);
 
-INSERT INTO departments (title, salary, department_id)
+INSERT INTO departments (department_id, department_name)
 VALUES
-    ('Stocker', '14', 1),
-    ('Customer Service', '12', 2),
-    ('Manager', '16', 3);
+    (1, 'Stocker'),
+    (2, 'Customer Service'),
+    (3, 'Manager');

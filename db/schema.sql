@@ -3,19 +3,21 @@ DROP TABLE IF EXISTS positions;
 DROP TABLE IF EXISTS employees;
 
 CREATE TABLE departments (
-    id INTEGER AUTO_INCREMENET PRIMARY KEY,
-    name VARCHAR(30),
-    description TEXT
+    department_id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    department_name VARCHAR(30)
 );
 
 CREATE TABLE positions (
-    id INTEGER AUTO-INCREMENT PRIMARY KEY,
+    position_id INTEGER AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(30) NOT NULL,
-    salary DECIMAL
+    salary DECIMAL,
     department_id INT
-)
+);
 
 CREATE TABLE employees (
-    id INTEGER AUTO-INCREMENT PRIMARY KEY,
-    
-)
+    employee_id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(30) NOT NULL,
+    last_name VARCHAR(30) NOT NULL,
+    role_id INT,
+    manager_id INT
+);
