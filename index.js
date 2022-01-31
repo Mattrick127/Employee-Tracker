@@ -1,10 +1,9 @@
+const connection = require('./db/connection');
 const inquirer = require('inquirer');
-const mysql = require('mysql2');
-const cTable = require('console.table');
 
 
 
-const prompt = () => {
+const promptUser = () => {
     console.log(`
     *record scratch*
     `);
@@ -13,7 +12,7 @@ const prompt = () => {
             type: 'rawlist',
             name: 'mainQuestion',
             message: 'WHAT?',
-            choices: ['View All Departments', 'View All Roles', 'View All Employees', 'Add a Department', 'Add a Role', 'Add an Employee', 'Update an Employee Role']
+            choices: ['View All Departments', 'View All Roles', 'View All Employees', 'Add a Department', 'Add a Role', 'Add an Employee', 'Update an Employee Role', 'Exit!']
         },
     ])
     .then((answers) => {
@@ -24,15 +23,18 @@ const prompt = () => {
     })
 };
 
-prompt();
+promptUser();
+ // View All Employees!
 
 const viewAllEmployees = () => {
-    let mysql = 
-    `SELECT employee.id
-    employee.first_name,
-    employee.last_name`
+    let sql =
+    `SELECT * FROM employees
+    FROM employee, role, department`;
+
+        
     prompt();
-};
+    };
+
 
 // const viewAllDepartments = () {
 
