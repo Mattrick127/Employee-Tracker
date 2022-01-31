@@ -1,7 +1,11 @@
 const connection = require('./db/connection');
 const inquirer = require('inquirer');
+const cTable = require('console.table');
 
-
+connection.connect((error) => {
+    if (error) throw error;
+    promptUser();
+});
 
 const promptUser = () => {
     console.log(`
@@ -9,32 +13,34 @@ const promptUser = () => {
     `);
     inquirer.prompt([
         {
-            type: 'rawlist',
+            type: 'list',
             name: 'mainQuestion',
             message: 'WHAT?',
-            choices: ['View All Departments', 'View All Roles', 'View All Employees', 'Add a Department', 'Add a Role', 'Add an Employee', 'Update an Employee Role', 'Exit!']
-        },
+            choices: ['View All Employees', 'Add an Employee', 'Update an Employee', 'Remove an Employee', 'View All Positions', 'Add a position', 'Remove a Position', 'View all Departments', 'Add a Department', 'Remove a Department', 'Exit!']
+        }
     ])
     .then((answers) => {
         const {choices} = answers;
+
         if (choices === 'View All Employees') {
             viewAllEmployees();
         }
-    })
+        
+    });
 };
 
-promptUser();
  // View All Employees!
 
 const viewAllEmployees = () => {
     let sql =
-    `SELECT * FROM employees
-    FROM employee, role, department`;
+    `SELECT employees.*`;
 
-        
-    prompt();
-    };
-
+    connection.promise().query(sql, (error, response) => {
+        if (error) throw error;
+        console.table(response);
+        promptUser();
+    });
+};
 
 // const viewAllDepartments = () {
 
