@@ -2,10 +2,10 @@
   "name": "employee-tracker",
   "version": "1.0.0",
   "description": "This application helps the user run their store better by managing a separate employee's department and role.",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
